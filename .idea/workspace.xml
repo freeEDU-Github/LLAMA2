@@ -20,7 +20,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/llama_test/llama-cpp-python" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -81,7 +81,7 @@
       <workItem from="1691653978287" duration="1936000" />
       <workItem from="1691668417477" duration="168000" />
       <workItem from="1691724965130" duration="6615000" />
-      <workItem from="1691737795439" duration="1110000" />
+      <workItem from="1691737795439" duration="1619000" />
     </task>
     <servers />
   </component>

@@ -1,3 +1,5 @@
+import os
+
 from kivy.app import App
 from kivy.core.window import Window
 from kivy.graphics import Color, Rectangle
@@ -39,11 +41,15 @@ class ModernWhiteApp(App):
     def build(self):
         layout = FloatLayout()
 
+        # Construct image file paths based on the script's directory
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        file_analyzer_img_path = os.path.join(script_dir, 'file-upload.png')
+        chatbot_assistant_img_path = os.path.join(script_dir, 'comment-alt.png')
+
         # Add the image with a specific size and position
-        File_Analyzer_img = Image(source='/mnt/Orin2SSD/LLAMA2/llama_test/file-upload.png',
+        File_Analyzer_img = Image(source=file_analyzer_img_path,
                                   size_hint=(None, None), size=(100, 100),
-                                  pos_hint={'x': 0.01,
-                                            'center_y': 0.69})  # Positioning it a bit higher to make room for the text
+                                  pos_hint={'x': 0.01, 'center_y': 0.69})
         layout.add_widget(File_Analyzer_img)
 
         # Add the label (text) below the image
@@ -52,7 +58,7 @@ class ModernWhiteApp(App):
                          color=(0, 0, 0, 1), bold=True)
         layout.add_widget(lbl_file)
 
-        Chatbot_Assistant_img = Image(source='/mnt/Orin2SSD/LLAMA2/llama_test/comment-alt.png', size_hint=(None, None),
+        Chatbot_Assistant_img = Image(source=chatbot_assistant_img_path, size_hint=(None, None),
                                       size=(100, 100),
                                       pos_hint={'x': 0.02, 'center_y': 0.36})
         layout.add_widget(Chatbot_Assistant_img)
@@ -64,7 +70,6 @@ class ModernWhiteApp(App):
 
         border_box = Borderbox(size_hint=(0.8, 0.89), pos_hint={'x': 0.18, 'y': 0.06})
         layout.add_widget(border_box)
-
 
         return layout
 
