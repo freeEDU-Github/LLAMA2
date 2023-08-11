@@ -1,3 +1,4 @@
+import os
 import kivy
 from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
@@ -15,8 +16,15 @@ callback_manager = CallbackManager([StreamingStdOutCallbackHandler()])
 n_gpu_layers = 3
 n_batch = 1512
 
+# Get the current directory
+current_directory = os.path.dirname(os.path.abspath(__file__))
+
+# Construct the model path relative to the current directory
+model_filename = "llama-2-13b-chat.ggmlv3.q8_0.bin"
+model_path = os.path.join(current_directory, model_filename)
+
 llm = LlamaCpp(
-    model_path="/mnt/Orin2SSD/LLAMA2/llama_test/llama-2-13b-chat.ggmlv3.q8_0.bin",
+    model_path=model_path,
     n_gpu_layers=n_gpu_layers,
     n_batch=n_batch,
     f16_kv=True,
